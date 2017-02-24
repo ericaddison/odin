@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <title>First one, again!</title>
+  </head>
+  <body>
+
+    <div id="navBar">
+      <div id="leftHead" class="headerDiv">
+        <a href="index.html">Back Home</a>
+        <a href="firstpage.html">First Page</a>
+      </div>
+      <div id="rightHead" class="headerDiv">
+        <a href="https://www.google.com">Google</a>
+        <a href="login.html">Log In</a>
+        <span id="userPic"><center>E</center></span>
+      </div>
+    </div>
+
+    <div id="content">
+      <h1>A web page</h1>
+      <div id="topDiv">
+        <p>This is a web <em>page</em>.</p>
+      </div>
+      <h2>Line Number</h2>
+      <p><strong>Line</strong> 2.</p>
+      <p>This web site is about
+        <abbr title="HyperText Markup Language">HTML</abbr>
+        and <abbr title="Cascading Style Sheets">CSS</abbr>.
+        <q>I like web development.</q></p>
+      <figure>
+        <blockquote cite="Rin the Risson, 2017">
+          Sometimes I think to myself, why continue? Why carry on inexorably
+          toward the one goal that I always thought I could avoid?
+        </blockquote>
+        <figcaption>
+          -Rin the Risson, 2017
+        </figcaption>
+      </figure>
+        <pre><code>
+          for(int var>i=0; i<10; i++)
+            a[i]++;
+          System.outprintln("And done.");
+        </code></pre>
+      <ol>
+        <li>Item 1</li>
+        <li>
+          Number 2
+          <ul>
+            <li>ha</li>
+            <li>haha</li>
+          </ul>
+        </li>
+        <li>Line c</li>
+      </ol>
+      <h3>Where to go?</h3>
+      <a href="http://www.htmldog.com">HTML-dog</a><br>
+      <a href="#lowerP">lower paragraph</a><br>
+      <a href="#theForm">the form</a><br>
+      <a href="index.html">to main</a>
+      <h4>h4 heading</h4>
+      <h5>h5 heading</h5>
+      <h6>h6 heading</h6>
+
+      <table>
+          <tr>
+              <td>(1,1)</td>
+              <td>(1,2)</td>
+              <td>(1,3)</td>
+          </tr>
+          <tr>
+              <td>(2,1)</td>
+              <td>(2,2)</td>
+              <td>(2,3)</td>
+          </tr>
+          <tr>
+            <td>(3,1)</td>
+            <td>(3,2)</td>
+            <td>(3,3)</td>
+          </tr>
+          <tr>
+            <td>(4,1)</td>
+            <td>(4,2)</td>
+            <td>(4,3)</td>
+          </tr>
+      </table>
+
+      <form action="contactus.php" method="post" id="theForm">
+          <h4> Fill out a form</h4>
+          <p class="myClass">Name:</p>
+          <p><input type="text" name="name" value="Your name"></p>
+
+          <p>Species:</p>
+          <p><input name="species"></p>
+          <!-- remember: 'type="text"' isn't actually necessary -->
+
+          <p>Comments: </p>
+          <p><textarea name="comments" rows="5" cols="20">Your comments</textarea></p>
+
+          <p>Are you:</p>
+          <p><input type="radio" name="areyou" value="male"> Male</p>
+          <p><input type="radio" name="areyou" value="female"> Female</p>
+          <p><input type="radio" name="areyou" value="hermaphrodite"> An hermaphrodite</p>
+          <p><input type="radio" name="areyou" value="asexual"> Asexual</p>
+
+          <p><input type="submit"></p>
+
+      </form>
+
+
+      <br><br><br><br><br><br><br><br><br><br><br><br>
+      <p id="lowerP">Here is the lower paragraph</p>
+    </div>
+  </body>
+</html>
