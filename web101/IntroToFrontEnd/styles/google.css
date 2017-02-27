@@ -60,6 +60,8 @@ body{
   white-space: nowrap;
 }
 
+/* Common footer pieces */
+
 ._Gs {
   padding-left: 27px;
   margin: 0 !important;
@@ -67,4 +69,62 @@ body{
 
 ._E2 a:hover {
     text-decoration: underline;
+}
+
+.gb_5b{
+  background-image: url("images/firefox-icon.png");
+  background-size: 528px 68px;
+  border: 1px solid black;
+}
+
+
+/* Common header pieces */
+
+a.gb_b {
+    color: #000;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.gb_fa .gb_b {
+    background-position: -132px -38px;
+    opacity: .55;
+}
+
+.gb_b{
+  display: inline-block;
+  outline: none;
+  vertical-align: middle;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 30px;
+  width: 30px;
+  color: #000;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+/* The Bell notification icon */
+.gb_Ec .gb_Fc {
+    background-position: -194px -21px;
+}
+
+.gb_Ec {
+    background-color: rgba(0,0,0,.55);
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 20px;
+    margin: 5px;
+    padding: 0 2px;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
 }
