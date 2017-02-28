@@ -28,6 +28,13 @@ body{
   min-width: 980px;
 }
 
+#gbw{
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  border: 1px solid black;
+}
 .fbar{
   font-size: small;
   margin-left: -27px;
@@ -74,7 +81,6 @@ body{
 .gb_5b{
   background-image: url("../images/googleStuff.png");
   background-size: 528px 68px;
-  border: 1px solid black;
 }
 
 
@@ -106,6 +112,23 @@ a.gb_b {
   text-decoration: none;
 }
 
+.gb_Dc {
+    position: relative;
+}
+
+.gb_sc {
+    line-height: normal;
+    position: relative;
+    text-align: left;
+}
+
+.gb_Sc {
+    display: inline-block;
+    padding: 0 0 0 15px;
+    vertical-align: middle;
+}
+
+
 
 /* The Bell notification icon */
 .gb_Ec .gb_Fc {
@@ -127,4 +150,44 @@ a.gb_b {
     border-radius: 50%;
     height: 20px;
     width: 20px;
+}
+
+.gb_Ec.gb_Fc {
+    background-position: -194px -21px;
+}
+
+.gb_R {
+    margin-left: 0!important;
+    margin-right: 0!important;
+    display: inline-block;
+    -webkit-flex: 0 0 auto;
+    flex: 0 0 auto;
+}
+
+.gb_jb {
+    min-width: 255px;
+    padding-left: 30px;
+    padding-right: 30px;
+    position: relative;
+    text-align: right;
+    z-index: 986;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+    -webkit-user-select: none;
+}
+
+.gb_Sf {
+    white-space: nowrap;
+    display: flex;
+}
+
+a.gb_P{
+    text-decoration: none;
+    color: #000;
+}
+
+a.gb_P:hover{
+    text-decoration: underline;
 }
