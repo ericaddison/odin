@@ -1,5 +1,4 @@
 // Problem 4: Palindromic Numbers
-// brute force!
 
 var running = false;
 var timeout = 10;
