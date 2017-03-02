@@ -14,6 +14,20 @@ for (var i=0; i<inputs.length; i++){
   })();
 }
 
+// button clicks
+var inputButtons = document.getElementsByClassName('inputButton');
+for (var i=0; i<inputButtons.length; i++){
+  // wrapped in an IFE to properly closure the value of theFunc
+  (function(){
+    var ind = inputButtons[i].id.indexOf("Input");
+    var theFunc = inputButtons[i].id.substring(0,ind);
+    inputButtons[i].addEventListener("click",function(event){
+          eval("run_" + theFunc + "();");
+    });
+  })();
+}
+
+
 // Helper functions
 var isNumeric = function(num){
   return !isNaN(num) && isFinite(num);
@@ -33,4 +47,14 @@ var setErrorFont = function(element){
 
 var setAutoFont = function(element){
   element.style.color = "inherit";
+}
+
+var setDivClicked = function(element, text){
+  element.style.opacity = 0.3;
+  element.innerHTML = text;
+}
+
+var setDivUnclicked = function(element, text){
+  element.style.opacity = 1;
+  element.innerHTML = text;
 }
