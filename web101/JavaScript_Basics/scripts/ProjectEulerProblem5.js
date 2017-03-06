@@ -9,7 +9,7 @@ var run_p5 = function(){
   var resultDiv = document.getElementById('p5Result');
   var value = (input1.value);
 
-  var MAX_N = 30;
+  var MAX_N = 200;
   var MIN_N = 2;
 
   if(!isNumeric(value)){
@@ -34,15 +34,9 @@ var run_p5 = function(){
 // find the smallest value that is a multiple of 1..n
 var smallestMultiple = function(n){
   var curNum = n;
-  while( !checkGoodMultiple(curNum,n) )
-    curNum++;
+  for(var i=n; i>1; i--){
+    curNum = LCM(curNum,i);
+  }
 
   return curNum;
-}
-
-var checkGoodMultiple = function(num, n){
-  for(var i=2; i<=n; i++)
-    if(num%i !== 0)
-      return false;
-  return true;
 }

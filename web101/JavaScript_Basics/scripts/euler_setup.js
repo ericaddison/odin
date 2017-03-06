@@ -26,35 +26,3 @@ for (var i=0; i<inputButtons.length; i++){
     });
   })();
 }
-
-
-// Helper functions
-var isNumeric = function(num){
-  return !isNaN(num) && isFinite(num);
-};
-
-var setErrorBorder = function(element){
-  element.style.border = "2px red solid";
-}
-
-var setSuccessBorder = function(element){
-  element.style.border = "2px green solid";
-}
-
-var setErrorFont = function(element){
-  element.style.color = "red";
-}
-
-var setAutoFont = function(element){
-  element.style.color = "inherit";
-}
-
-var setDivClicked = function(element, text){
-  element.style.opacity = 0.3;
-  element.innerHTML = text;
-}
-
-var setDivUnclicked = function(element, text){
-  element.style.opacity = 1;
-  element.innerHTML = text;
-}
