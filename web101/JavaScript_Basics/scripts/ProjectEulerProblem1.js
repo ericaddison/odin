@@ -25,7 +25,7 @@ var run_p1 = function(){
 
 var sumMultiplesOfThreeAndFive = function(value){
   var sum = 0;
-  for(var i=0; i<=value; i++)
+  for(var i=0; i<value; i++)
     sum += (i%3==0 || i%5==0) ? i : 0;
   return sum;
 }
