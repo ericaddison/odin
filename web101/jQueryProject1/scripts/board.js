@@ -2,6 +2,7 @@
 var GRID_SIZE_MAX = 64;
 var GRID_SIZE_MIN = 2;
 
+// readu setup
 $(document).ready(function(){
   var boardDiv = $('#drawingBoard');
   makeBoard(boardDiv, 16);
@@ -42,12 +43,12 @@ var makeCell = function(dimPx){
 // mouse enters a cell
 var mouseEnterCell = function(){
   $(this).addClass("activeCell");
-  $(this).removeClass("inactiveCell");
+  $(this).removeClass("drawnCell");
 }
 
 // mouse leaves a cell
 var mouseLeaveCell = function(){
-  $(this).addClass("inactiveCell");
+  $(this).addClass("drawnCell");
   $(this).removeClass("activeCell");
 }
 
