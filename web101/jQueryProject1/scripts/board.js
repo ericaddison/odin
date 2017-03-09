@@ -1,14 +1,14 @@
 // file variables
 var GRID_SIZE_MAX = 64;
 var GRID_SIZE_MIN = 2;
-var boardDiv;
 
 $(document).ready(function(){
-  boardDiv = $('#drawingBoard');
+  var boardDiv = $('#drawingBoard');
   makeBoard(boardDiv, 16);
-  $('#gridSizeInput').keypress(function(){
+
+  $('#gridSizeInput').keypress(function(event){
     if(checkForEnter(event))
-      gridSizeInputEnter($(this).val());
+      gridSizeInputEnter(boardDiv, $(this).val());
   });
 
 });
@@ -18,23 +18,25 @@ $(document).ready(function(){
 var makeBoard = function(boardDiv, n){
 
   var cellDim = boardDiv.height()/n;
-
   boardDiv.empty();
-  boardDiv.css('line-height',cellDim+'px');
+  makeCells(boardDiv, n, cellDim);
+
+}
+
+var makeCells = function(boardDiv, n, cellDim){
   for(var i=0; i<n*n; i++){
-    window.setTimeout('addCell(' + cellDim + ')', 1);
-    //addCell(boardDiv, cellDim);
+    boardDiv.append(makeCell(cellDim));
   }
 }
 
 
 // make a board cell
-var addCell = function(dimPx){
+var makeCell = function(dimPx){
   var newCell = $('<div class="boardCell"></div>');
   newCell.height(dimPx + 'px');
   newCell.width(dimPx + 'px');
   newCell.hover(mouseEnterCell, mouseLeaveCell);
-  boardDiv.append(newCell);
+  return newCell;
 }
 
 // mouse enters a cell
@@ -50,16 +52,16 @@ var mouseLeaveCell = function(){
 }
 
 // "Enter" is pressed in the grid-size input field
-var gridSizeInputEnter = function(gridSize){
+var gridSizeInputEnter = function(boardDiv, gridSize){
   var inputLabel = $('#gridSizeInputLabel');
   var errorText = checkGridInputForError(gridSize);
   if(errorText!==""){
     inputLabel.addClass('errorBox');
-    $('#drawingBoard').text(errorText);
+    boardDiv.text(errorText);
   } else{
-    $('#drawingBoard').text('');
+    boardDiv.text('');
     inputLabel.removeClass('errorBox');
-    makeBoard($('#drawingBoard'), Math.floor(gridSize));
+    makeBoard(boardDiv, Math.floor(gridSize));
   }
 
 }
