@@ -4,16 +4,13 @@
 </head>
   <link href="styles/style.css" rel="stylesheet" type="text/css">
 <body>
-  <h1 id="title">jQuery Project 1: Etch-A-Skecthy</h1>
-  <div id="drawingOptions">
+  <h1 id="title" class="banner">jQuery Project 1: Etch-A-Skecthy</h1>
+  <div id="drawingOptions" class="banner">
+    <span id="gridSizeInputLabel">Grid Size:</span>
+      <input type="text" id="gridSizeInput" class="input"></input>
   </div>
+  
   <div id="drawingContainer">
-    <div id="gridSizeInputDiv">
-      <p><span id="gridSizeInputLabel">Grid Size:</span>
-        <input type="text" id="gridSizeInput" class="input"></input>
-        <br>(Values larger than 32 will take a moment to finish...)
-      </p>
-    </div>
     <div id="drawingBoard"></div>
   </div>
 
