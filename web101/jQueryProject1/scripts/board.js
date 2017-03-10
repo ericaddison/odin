@@ -1,12 +1,15 @@
 // file variables
 var GRID_SIZE_MAX = 64;
 var GRID_SIZE_MIN = 2;
+var GRID_SIZE_DEFAULT = 16;
+var drawColor = 'white';
 
-// readu setup
+// ready setup
 $(document).ready(function(){
   var boardDiv = $('#drawingBoard');
-  makeBoard(boardDiv, 16);
+  makeBoard(boardDiv, GRID_SIZE_DEFAULT);
 
+  $('#gridSizeInput')[0].value = GRID_SIZE_DEFAULT;
   $('#gridSizeInput').keypress(function(event){
     if(checkForEnter(event))
       gridSizeInputEnter(boardDiv, $(this).val());
@@ -14,6 +17,10 @@ $(document).ready(function(){
 
 });
 
+// set the drawing color
+var setDrawColor = function(color){
+  drawColor = color;
+}
 
 // Make the drawing board
 var makeBoard = function(boardDiv, n){
@@ -30,7 +37,6 @@ var makeCells = function(boardDiv, n, cellDim){
   }
 }
 
-
 // make a board cell
 var makeCell = function(dimPx){
   var newCell = $('<div class="boardCell"></div>');
@@ -43,13 +49,13 @@ var makeCell = function(dimPx){
 // mouse enters a cell
 var mouseEnterCell = function(){
   $(this).addClass("activeCell");
-  $(this).removeClass("drawnCell");
 }
 
 // mouse leaves a cell
 var mouseLeaveCell = function(){
   $(this).addClass("drawnCell");
   $(this).removeClass("activeCell");
+  $(this).css('background-color',drawColor);
 }
 
 // "Enter" is pressed in the grid-size input field

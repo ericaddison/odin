@@ -4,20 +4,24 @@
 </head>
   <link href="styles/style.css" rel="stylesheet" type="text/css">
 <body>
-  <h1>jQuery Project 1</h1>
-
-  <div id="gridSizeInputDiv">
-    <p><span id="gridSizeInputLabel">Grid Size:</span>
-      <input type="text" id="gridSizeInput" class="input"></input>
-      <br>(Values larger than 32 will take a moment to finish...)
-    </p>
+  <h1 id="title">jQuery Project 1: Etch-A-Skecthy</h1>
+  <div id="drawingOptions">
+  </div>
+  <div id="drawingContainer">
+    <div id="gridSizeInputDiv">
+      <p><span id="gridSizeInputLabel">Grid Size:</span>
+        <input type="text" id="gridSizeInput" class="input"></input>
+        <br>(Values larger than 32 will take a moment to finish...)
+      </p>
+    </div>
+    <div id="drawingBoard"></div>
   </div>
 
-  <div id="drawingBoard"></div>
 </body>
 
 <script src="scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
 <script src="scripts/helperFunctions.js" type="text/javascript"></script>
 <script src="scripts/board.js" type="text/javascript"></script>
+<script src="scripts/drawingOptions.js" type="text/javascript"></script>
 
 </html>
