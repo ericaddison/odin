@@ -2,12 +2,11 @@
 var GRID_SIZE_MAX = 64;
 var GRID_SIZE_MIN = 2;
 var GRID_SIZE_DEFAULT = 16;
+var gridSize = GRID_SIZE_DEFAULT;
 var drawColor = 'white';
 
 // ready setup
 $(document).ready(function(){
-  var boardDiv = $('#drawingBoard');
-  makeBoard(boardDiv, GRID_SIZE_DEFAULT);
 
   $('#gridSizeInput')[0].value = GRID_SIZE_DEFAULT;
   $('#gridSizeInput').keypress(function(event){
@@ -15,7 +14,10 @@ $(document).ready(function(){
       gridSizeInputEnter(boardDiv, $(this).val());
   });
 
+  var boardDiv = $('#drawingBoard');
+  makeBoard(boardDiv);
 });
+
 
 // set the drawing color
 var setDrawColor = function(color){
@@ -23,27 +25,35 @@ var setDrawColor = function(color){
 }
 
 // Make the drawing board
-var makeBoard = function(boardDiv, n){
-
-  var cellDim = boardDiv.height()/n;
+var makeBoard = function(boardDiv){
+  resizeBoard();
   boardDiv.empty();
-  makeCells(boardDiv, n, cellDim);
-
+  makeCells(boardDiv);
+  var newCellDim = computeCellDim();
+  setCellDimensions(newCellDim, newCellDim);
 }
 
-var makeCells = function(boardDiv, n, cellDim){
-  for(var i=0; i<n*n; i++){
-    boardDiv.append(makeCell(cellDim));
-  }
+
+// make the grid of cells for the board
+var makeCells = function(boardDiv){
+  var n = gridSize;
+  for(var i=0; i<n*n; i++)
+    boardDiv.append(makeCell());
 }
 
 // make a board cell
 var makeCell = function(dimPx){
   var newCell = $('<div class="boardCell"></div>');
-  newCell.height(dimPx + 'px');
-  newCell.width(dimPx + 'px');
   newCell.hover(mouseEnterCell, mouseLeaveCell);
   return newCell;
+}
+
+
+// set the dimensions of the cells
+var setCellDimensions = function(w,h){
+  console.log('setting dims: ' + w + ", " + h);
+  $('.boardCell').width(w+'px');
+  $('.boardCell').height(h+'px');
 }
 
 // mouse enters a cell
@@ -59,16 +69,17 @@ var mouseLeaveCell = function(){
 }
 
 // "Enter" is pressed in the grid-size input field
-var gridSizeInputEnter = function(boardDiv, gridSize){
+var gridSizeInputEnter = function(boardDiv, newGridSize){
   var inputLabel = $('#gridSizeInputLabel');
-  var errorText = checkGridInputForError(gridSize);
+  var errorText = checkGridInputForError(newGridSize);
   if(errorText!==""){
     inputLabel.addClass('errorBox');
     boardDiv.text(errorText);
   } else{
+    gridSize = newGridSize;
     boardDiv.text('');
     inputLabel.removeClass('errorBox');
-    makeBoard(boardDiv, Math.floor(gridSize));
+    makeBoard(boardDiv);
   }
 
 }
@@ -83,4 +94,27 @@ var checkGridInputForError = function(gridSize){
         + " and " + GRID_SIZE_MAX;
     else
       return "";
+}
+
+
+// resize the drawing board based on the window height
+var resizeBoard = function(){
+    var wwidth = $(window).width();
+    var wheight = $(window).height();
+
+    var titleH = getTotalHeightByID('title');
+    var optionsH = getTotalHeightByID('drawingOptions');
+
+    var smallDim = Math.min(wwidth,(wheight-titleH-optionsH-75));
+    console.log(smallDim)
+    $('#drawingBoard').height(smallDim);
+    $('#drawingBoard').width(smallDim);
+
+
+}
+
+// get the current best cell dimension based on the drawingBoard Height
+var computeCellDim = function(){
+  var rawSize = $('#drawingBoard').height()/gridSize;
+  return Math.floor(rawSize*10.0)/10.0;
 }

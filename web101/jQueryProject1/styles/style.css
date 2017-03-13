@@ -1,43 +1,30 @@
 body{
-  text-align: center;
   background-color: #dfd;
 }
 
 #title{
-  top: 0px;
   background-color: #68a;
   padding: 15px 0;
-  margin-top: 0px;
+  margin-top: -8px;
 }
 
 #drawingOptions{
-  bottom: 0px;
-  background-color: #246;
+  position: absolute;
+  background-color: #68a;
   padding: 5px 0;
+  margin-top: 20px;
+  bottom: 0px;
 }
 
-.banner{
-  position: absolute;
-  left: 0px;
-  right: 0px;
-}
 
 #drawingContainer{
-  margin: auto;
-  margin-top: 50px;
-  display: inline-block;
-  left: 25%;
-  width: 100%;
-  padding: 20px;
 }
 
 #drawingBoard{
   margin: auto;
-  border: solid #742 20px;
-  border-radius: 25px;
-  width: 350px;
-  height: 350px;
-  background-color: #6a6;
+  border: solid #68a 8px;
+  border-radius: 5px;
+  background-color: #333;
   text-align: center;
   font-family: sans-serif;
   line-height: 50%;
@@ -51,6 +38,13 @@ body{
   margin-right: 5px;
 }
 
+.banner{
+  margin-left: -10px;
+  margin-right: -10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
 
 .input{
   border: 1px solid #888;
@@ -87,6 +81,7 @@ body{
   height: 20px;
   margin: 10px;
   border: 1px solid #666;
+  vertical-align: middle;
 }
 
 .colorChoice:hover{
