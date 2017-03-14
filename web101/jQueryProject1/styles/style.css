@@ -38,6 +38,15 @@ body{
   margin-right: 5px;
 }
 
+#resizeMessage{
+  float:left;
+  text-align: center;
+  border: 1px solid black;
+  padding: 3px;
+  background-color: #bdb;
+  display: none;
+}
+
 .banner{
   margin-left: -10px;
   margin-right: -10px;

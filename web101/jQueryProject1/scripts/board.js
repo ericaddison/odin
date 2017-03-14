@@ -14,6 +14,12 @@ $(document).ready(function(){
       gridSizeInputEnter(boardDiv, $(this).val());
   });
 
+  $(window).resize(function() {
+    var resizeMessage = $('#resizeMessage');
+    if(resizeMessage.css('display')==='none')
+      resizeMessage.fadeIn(200);
+  })
+
   var boardDiv = $('#drawingBoard');
   makeBoard(boardDiv);
 });
@@ -110,7 +116,7 @@ var resizeBoard = function(){
     $('#drawingBoard').height(smallDim);
     $('#drawingBoard').width(smallDim);
 
-
+    $('#resizeMessage').fadeOut(200);
 }
 
 // get the current best cell dimension based on the drawingBoard Height
