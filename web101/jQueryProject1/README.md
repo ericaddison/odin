@@ -11,3 +11,5 @@ on the bottom of the screen and pressing return. Large numbers will take a momen
 
 A warning message is displayed when the browser window is resized, explaining that the drawing board will
 be resized upon the next grid-size change.
+
+See live version [here](https://ericaddison.github.io/odin/web101/jQueryProject1/).
