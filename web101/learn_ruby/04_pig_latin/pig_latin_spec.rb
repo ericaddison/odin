@@ -19,6 +19,29 @@
 
 require "pig_latin"
 
+describe "alpha_char?" do
+  it "recognizes a lowercase char" do
+    s = alpha_char?('a')
+    expect(s).to  be(true)
+  end
+
+  it "recognizes an uppercase char" do
+    s = alpha_char?('F')
+    expect(s).to  be(true)
+  end
+
+  it "does not recognize a number" do
+    s = alpha_char?('1')
+    expect(s).to  be(false)
+  end
+
+  it "does not recognize punctuation" do
+    s = alpha_char?('.')
+    expect(s).to  be(false)
+  end
+
+end
+
 describe "#translate" do
 
   it "translates a word beginning with a vowel" do
@@ -68,5 +91,16 @@ describe "#translate" do
   # Test-driving bonus:
   # * write a test asserting that capitalized words are still capitalized (but with a different initial capital letter, of course)
   # * retain the punctuation from the original phrase
+
+  it "recapitalizes correctly" do
+    s = translate("Banana")
+    expect(s).to eq("Ananabay")
+  end
+
+  it "maintains punctuation" do
+    s = translate("This should be a good test, I think.")
+    expect(s).to eq("Isthay ouldshay ebay aay oodgay esttay, Iay inkthay.")
+  end
+
 
 end
