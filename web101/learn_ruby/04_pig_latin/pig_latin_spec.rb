@@ -19,28 +19,130 @@
 
 require "pig_latin"
 
-describe "alpha_char?" do
+describe "alpha?" do
   it "recognizes a lowercase char" do
-    s = alpha_char?('a')
+    s = alpha?('a')
     expect(s).to  be(true)
   end
 
   it "recognizes an uppercase char" do
-    s = alpha_char?('F')
+    s = alpha?('F')
     expect(s).to  be(true)
   end
 
   it "does not recognize a number" do
-    s = alpha_char?('1')
+    s = alpha?('1')
     expect(s).to  be(false)
   end
 
   it "does not recognize punctuation" do
-    s = alpha_char?('.')
+    s = alpha?('.')
     expect(s).to  be(false)
   end
 
+  it "recognizes an alpha string" do
+    s = alpha?('abcD')
+    expect(s).to  be(true)
+  end
+
 end
+
+describe "upper?" do
+  it "recognizes an uppercase letter" do
+    s = upper? 'X'
+    expect(s).to be(true)
+  end
+
+  it "recognizes a different uppercase letter" do
+    s = upper? 'A'
+    expect(s).to be(true)
+  end
+
+  it "recognizes an uppercase string" do
+    s = upper? 'HELLO'
+    expect(s).to be(true)
+  end
+
+  it "does not recognize a lowercase letter" do
+    s = upper? 'x'
+    expect(s).to be(false)
+  end
+
+  it "does not recognize a different lowercase letter" do
+    s = upper? 'e'
+    expect(s).to be(false)
+  end
+
+  it "does not recognize a lowercase string" do
+    s = upper? 'abdc'
+    expect(s).to be(false)
+  end
+
+  it "does not recognize a mixed string" do
+    s = upper? 'abdcASD'
+    expect(s).to be(false)
+  end
+
+  it "does not recognize a number" do
+    s = upper? '4'
+    expect(s).to be(false)
+  end
+
+  it "does not recognize a symbol" do
+    s = upper? "~"
+    expect(s).to be(false)
+  end
+
+end
+
+describe "lower?" do
+  it "recognizes a lowercase letter" do
+    s = lower? 'x'
+    expect(s).to be(true)
+  end
+
+  it "recognizes a different lowercase letter" do
+    s = lower? 'a'
+    expect(s).to be(true)
+  end
+
+  it "recognizes a lowercase string" do
+    s = lower? 'hello'
+    expect(s).to be(true)
+  end
+
+  it "does not recognize an uppercase letter" do
+    s = lower? 'X'
+    expect(s).to be(false)
+  end
+
+  it "does not recognize a different uppercase letter" do
+    s = lower? 'E'
+    expect(s).to be(false)
+  end
+
+  it "does not recognize an uppercase string" do
+    s = lower? 'ABDC'
+    expect(s).to be(false)
+  end
+
+  it "does not recognize a mixed string" do
+    s = lower? 'abdcASD'
+    expect(s).to be(false)
+  end
+
+  it "does not recognize a number" do
+    s = lower? '4'
+    expect(s).to be(false)
+  end
+
+  it "does not recognize a symbol" do
+    s = lower? "~"
+    expect(s).to be(false)
+  end
+
+end
+
 
 describe "#translate" do
 

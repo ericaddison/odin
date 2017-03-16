@@ -11,39 +11,44 @@ def translate(str)
 end
 
 def translate_word(str)
-  first = ""
-  last = ""
-  if !(alpha_char? str[0])
-    first = str[0]
-    str = str[1..-1]
-  end
-  if !(alpha_char? str[-1])
-    last = str[-1]
-    str = str[0..-2]
-  end
-
-  if $vowels.include? str[0].downcase
-    str = pig_shift(0,str)
-
-  elsif str[0..1] == 'qu'
-    str = pig_shift(2,str)
-
-  elsif $vowels.include? str[1].downcase
-    str = pig_shift(1,str)
-
-  elsif str[1..2] == 'qu'
-    str = pig_shift(3,str)
-
-  elsif $vowels.include? str[2].downcase
-    str = pig_shift(2,str)
-
-  elsif $vowels.include? str[3].downcase
-    str = pig_shift(3,str)
-  end
-
+  first, last, str = check_for_punctuation(str)
+  sa = get_shift_amount(str)
+  str = pig_shift(sa,str)
   str = "#{first}#{str}#{last}"
 end
 
+def check_for_punctuation(str)
+  first = ""
+  last = ""
+  if !(alpha? str[0])
+    first = str[0]
+    str = str[1..-1]
+  end
+  if !(alpha? str[-1])
+    last = str[-1]
+    str = str[0..-2]
+  end
+  [first, last, str]
+end
+
+# determine how many chars need to be shifted to the back
+def get_shift_amount(str)
+  if $vowels.include? str[0].downcase
+    0
+  elsif str[0..1] == 'qu'
+    2
+  elsif $vowels.include? str[1].downcase
+    1
+  elsif str[1..2] == 'qu'
+    3
+  elsif $vowels.include? str[2].downcase
+    2
+  elsif $vowels.include? str[3].downcase
+    3
+  end
+end
+
+# perform the char shifting
 def pig_shift(ind, str)
   need_up_case = upper? str[0]
   if need_up_case
@@ -54,15 +59,17 @@ def pig_shift(ind, str)
   str
 end
 
-def lower?(char)
-  char >= 'a' and char <= 'z'
+# determine if a string is all lowercase
+def lower?(str)
+  !!str.match('^[a-z]+$');
 end
 
-def upper?(char)
-  !(lower? char)
+# determing if a string is all uppercase
+def upper?(str)
+  !!str.match('^[A-Z]+$');
 end
 
-def alpha_char?(char)
-    c = char.downcase
-    c >= 'a' and c <= 'z'
+#_determine if a string is all letters (no whitespace)
+def alpha?(str)
+    !!str.match('^[a-zA-Z]+$');
 end
